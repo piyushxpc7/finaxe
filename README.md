@@ -1,8 +1,10 @@
-# Finaxe 📊
+# Tranche 🔪
 
 **Financial Data Extraction with Intelligent Caching & Context Optimization**
 
 Extract structured financial metrics from SEC filings using LLMs, with intelligent context budgeting and Redis caching to minimize API costs.
+
+> **Why "Tranche"?** In finance, a *tranche* is a slice of a larger deal. That's exactly what this engine does — it slices dense 100k-token filings into ranked sections, keeps the tranches that matter, and drops the rest to fit your context budget.
 
 ---
 
@@ -26,8 +28,8 @@ Extract structured financial metrics from SEC filings using LLMs, with intellige
 
 ```bash
 # Clone repo
-git clone https://github.com/piyushxpc7/finaxe.git
-cd finaxe
+git clone https://github.com/piyushxpc7/tranche.git
+cd tranche
 
 # Install dependencies
 pip install -r requirements.txt
@@ -142,7 +144,7 @@ Overall:                     60-95% cost savings
 ## 📁 Project Structure
 
 ```
-finaxe/
+tranche/
 ├── app/
 │   ├── llm/
 │   │   ├── cache.py          # Redis caching layer
@@ -190,7 +192,7 @@ REDIS_URL=redis://localhost:6379
 CACHE_TTL_SECONDS=86400  # 24 hours
 
 # Database (optional)
-DATABASE_URL=postgresql://user:password@localhost/finaxe
+DATABASE_URL=postgresql://user:password@localhost/tranche
 ```
 
 ### Redis Setup
