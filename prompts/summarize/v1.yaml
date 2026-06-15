@@ -1,0 +1,26 @@
+name: summarize
+version: "v1"
+model: gpt-4o-mini      # Summarization doesn't need frontier model — save 16x cost
+date: 2026-06-14
+author: Chandra
+changelog: "Initial analyst summary prompt"
+
+system: |
+  You are a senior equity research analyst producing concise summaries for internal use.
+  Be factual and specific. Do not editorialize or add opinions.
+  Every bullet must cite where in the document the information comes from.
+
+user: |
+  Summarize the following SEC filing section in exactly 5 bullet points.
+
+  Requirements:
+  - Each bullet must begin with the filing section it came from, e.g., "[MD&A]" or "[Risk Factors]"
+  - Each bullet must contain at least one specific number or date
+  - Do not use vague language ("revenue increased") — be specific ("revenue grew 8% YoY to $383B")
+  - Do not add information from outside this text
+
+  Ticker: {ticker}
+  Filing section: {section_name}
+
+  Text:
+  {section_text}
